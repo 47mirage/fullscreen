@@ -20,7 +20,15 @@
     <link rel="stylesheet" href="./fd30ee9cf531f512.css" data-n-g="">
     <link rel="preload" href="./a4fa526974c27acd.css" as="style">
     <link rel="stylesheet" href="./a4fa526974c27acd.css" data-n-p="">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <meta name="theme-color" content="#ec660f">
+    
+    <!-- iOS用：フルスクリーン化に必要 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="TicketDive">
 </head>
+    
 
 <body>
     <div id="__next">
@@ -993,6 +1001,15 @@
                 }, 500);
             });
         });
+    </script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js').catch(err => {
+            console.error('SW registration failed:', err);
+          });
+        });
+      }
     </script>
 </body>
 
